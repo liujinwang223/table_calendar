@@ -358,6 +358,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
     if (_isRangeSelectionOn && widget.onRangeSelected != null) {
       if (_firstSelectedDay == null) {
         _firstSelectedDay = day;
+       widget.onDaySelected?.call(day, _focusedDay.value);
         widget.onRangeSelected!(_firstSelectedDay, null, _focusedDay.value);
       } else {
         if (day.isAfter(_firstSelectedDay!)) {
